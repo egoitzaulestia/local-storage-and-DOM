@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <h1>Formulario de Contacto — Local Storage</h1>
+    <form id="contact-form">
+        <div>
+            <div>
+                <label class="label" for="id">ID:</label>
+            </div>
+                <input type="number" id="id" name="id" value="" placeholder="Introduce ID" required><br>
+        </div><br>
+        <div>
+            <div>
+                <label class="label" for="name">Name:</label>
+            </div>
+                <input type="text" id="name" name="name" value="" placeholder="Introduce name" required><br>
+        </div><br>
+        <div>
+            <div>
+                <label class="label" for="email">Email:</label>
+            </div>
+                <input type="email" id="email" name="email" value="" placeholder="Introduce email" required><br>
+        </div><br>
+        <div>
+            <div>
+                <label class="label" for="message">Message:</label>
+            </div>
+                <textarea name="message" id="message" placeholder="Introduce text" required></textarea><br>
+        </div><br>
+        <div>
+            <div>
+                <label class="label" for="image-url">Image URL:</label>
+            </div>
+                <input type="url" id="image-url" name="image-url" value="" placeholder="Introduce URL" required><br>
+        </div><br>
+        
+        <button type="submit">Send</button>
+        
+
+    </form><br>
+
+    <button id="clear-data-btn">Clear Data</button><br><br> 
+    <button id="remove-user-btn">Clear Data</button><br><br>  
+
+    <h3>Sotored People</h3>
+    <ul id="users-list"></ul>
+
+    
+</body>
+</html>
