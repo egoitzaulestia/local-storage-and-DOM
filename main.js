@@ -14,7 +14,7 @@ const peopleList = document.getElementById('users-list');
 document.addEventListener('DOMContentLoaded', displayPeople);
 
 form.addEventListener('submit', (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     const id = parseInt(idInput.value);
     const name = nameInput.value.trim();
@@ -51,6 +51,7 @@ form.addEventListener('submit', (e) => {
     idInput.value = '';
     nameInput.value = '';
     emailInput.value = '';
+    messageImput.value = '';
     imageUrlInput.value = '';
     displayPeople();
 })
@@ -73,6 +74,7 @@ removeUser.addEventListener('click', removeUserFromLocalStorage);
 
 function clearLocalStorage() {
     localStorage.clear();
+    peopleList.innerHTML = '';
 }
 
 function removeUserFromLocalStorage() {
