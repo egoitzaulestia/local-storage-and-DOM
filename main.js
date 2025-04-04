@@ -62,7 +62,8 @@ function displayPeople() {
     peopleList.innerHTML = '';
     data.forEach(user => {
         const li = document.createElement('li');
-        li.textContent = `ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Message: ${user.message}, ImageURL: ${user.imageURL}`;
+        // li.textContent = `ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Message: ${user.message}, ImageURL: ${user.imageURL}`;
+        li.innerHTML = `<b>ID:</b> ${user.id},<br><b>Name:</b> ${user.name},<br><b>Email:</b> ${user.email},<br><b>Message:</b> ${user.message},<br><b>ImageURL:</b> ${user.imageURL}`;
         peopleList.appendChild(li);
     });
 }
@@ -108,7 +109,10 @@ function removeUserFromLocalStorage() {
     
     // Refresh the displayed list of users
     displayPeople();
+}
 
+function dbAlertMessage(){
+    
 }
 
 /*
