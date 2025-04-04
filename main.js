@@ -22,6 +22,7 @@ form.addEventListener('submit', (e) => {
     const message = messageImput.value.trim();
     const imageURL = imageUrlInput.value.trim();
 
+
     if (isNaN(id) || !name || !email || !message || !imageURL) {
         return;
     }
@@ -67,7 +68,7 @@ function displayPeople() {
 }
 
 const clearAllData = document.getElementById('clear-data-btn');
-;const removeUser = document.getElementById('remove-user-btn')
+const removeUser = document.getElementById('remove-user-btn');
 
 clearAllData.addEventListener('click', clearLocalStorage);
 removeUser.addEventListener('click', removeUserFromLocalStorage);
@@ -78,7 +79,44 @@ function clearLocalStorage() {
 }
 
 function removeUserFromLocalStorage() {
-    localStorage.removeItem();
+    const data = JSON.parse(localStorage.getItem('users')) || [];
+    const idUserToRemove = Number(document.getElementById('id-remove-user').value || '');
+    console.log(idUserToRemove);
+
+    // Validate input
+    if (!idUserToRemove) {
+        console.error('User not found');
+        return;
+    }
+
+    // Check if the ID exists in the data
+    const userToRemove = data.find(user => user.id === idUserToRemove);
+    // If the user is not found, log an error
+    if (!userToRemove) {
+        console.error('User not found');
+        return;
+    }
+
+    // Remove the user from the data array
+    const updatedData = data.filter(user => user.id !== idUserToRemove);
+        
+    // Update localStorage with the modified data
+    localStorage.setItem('users', JSON.stringify(updatedData));
+    
+    // Clear the input field
+    document.getElementById('id-remove-user').value = '';
+    
+    // Refresh the displayed list of users
+    displayPeople();
+
 }
+
+/*
+
+- I have to delete an object from the array of objects
+- I'm gonna act through the index
+- localStorage.removeItem()
+
+*/
 
 // localStorage.clear()
