@@ -28,7 +28,7 @@ form.addEventListener('submit', (e) => {
     }
 
     let data = JSON.parse(localStorage.getItem('users')) || [];
-
+ 
     // Check if ID already exists
     /////////////////////////////
     // findIndex will go through the array and check each object's `id`
